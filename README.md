@@ -31,7 +31,7 @@ $ yarn add @material-ui/core react@16 @benjaminnoufel/react-material-ui-table
 
 ### Use ReactMaterialUiTable without additionnalColumns
 ```tsx
-import ReactMaterialUiTable from "@benjaminnoufel/react-material-ui-table"
+import {ReactMaterialUiTable, formatHeaderColumn} from "@benjaminnoufel/react-material-ui-table"
 import React from "react";
 
 const App = () => {
@@ -40,7 +40,7 @@ const App = () => {
         description: "Description",
         reference: "Reference"
     }
-    const headers = Object.keys(head).reduce((allHeaders, header) => ({...allHeaders, [header]: translate(header, lang)}), {})
+    const headers = formatHeaderColumn(head);
     const rows = [
         {
             name: "Product 1",
@@ -77,7 +77,7 @@ const App = () => {
         description: "Description",
         reference: "Reference"
     }
-    const headers = Object.keys(head).reduce((allHeaders, header) => ({...allHeaders, [header]: translate(header, lang)}), {})
+    const headers = formatHeaderColumn(head);
     const rows = [
         {
             name: "Product 1",
