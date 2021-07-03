@@ -20,6 +20,9 @@ jobs:
       - name: Setting up the environment
         run: cp .env.example .env
 
+      - name: Setting NODE_ENV
+        run: sed -i 's/NODE_ENV=.*/NODE_ENV=development/g' .env
+
       - name: Cleanup the project
         run: make clean
 
@@ -41,11 +44,8 @@ jobs:
       - name: Install the npmjs token
         run: make npmjs
 
-      - name: Install the peer dependencies
-        run: make peer
-
       - name: Install the dependencies
-        run: make install
+        run: make install peer
 
       - name: Build the project
         run: make build

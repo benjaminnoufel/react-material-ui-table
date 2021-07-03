@@ -23,6 +23,9 @@ jobs:
             - name: Setup for the environment
               run: cp .env.example .env
 
+            - name: Setting NODE_ENV
+              run: sed -i 's/NODE_ENV=.*/NODE_ENV=development/g' .env
+
             - name: Install the Node.js dependencies
               run: make install peer
 
