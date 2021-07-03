@@ -1,6 +1,6 @@
 {
     "name": "@benjaminnoufel/react-material-ui-table",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Create table with Material-ui Table for React.",
     "license": "MIT",
     "main": "./dist/ReactMaterialUiTable.js",
