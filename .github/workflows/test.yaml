@@ -3,7 +3,7 @@ name: Test CI
 on:
     push:
         branches:
-            - next
+            - main
             - latest
 
     pull_request:

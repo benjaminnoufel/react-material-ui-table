@@ -3,7 +3,7 @@ name: Code Style CI
 on:
     push:
         branches:
-          - next
+          - main
           - latest
 
     pull_request:
