@@ -49,6 +49,8 @@
         "SharedArrayBuffer": "readonly"
     },
     "rules": {
-        "sort-keys": "off"
+        "sort-keys": "off",
+        "multiline-ternary": "off",
+        "no-unused-vars": "off"
     }
 }
