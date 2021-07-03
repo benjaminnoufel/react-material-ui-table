@@ -26,9 +26,9 @@ export interface ReactMaterialUiTableProps extends React.TableHTMLAttributes<HTM
     hiddenColumns?: string[];
     rowsPerPage?: number;
     rowsPerPageOptions?: number[];
-    additionnalColumnsId?: string;
-    additionnalColumnsLabel?: string;
-    additionnalColumns?: Array<AdditionnalColumn>;
+    additionalColumnsId?: string;
+    additionalColumnsLabel?: string;
+    additionalColumns?: Array<AdditionnalColumn>;
     tablePaginationClassName?: string;
 }
 
@@ -38,8 +38,9 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
+export const formatHeaderColumn = (head: Record<string, any>) => Object.keys(head).reduce((allHeaders, header) => ({...allHeaders, [header]: header}), {});
 
-export const ReactMaterialUiTable = ({headers, rows, OutlinedInputProps, TableCellHeaderProps, TableCellBodyProps, TableContainerProps, tablePaginationClassName, labelRowsPerPage = "Column per page", backIconButtonText = "back", nextIconButtonText = "next", showSearch = true, hiddenColumns = [], rowsPerPage = 10, rowsPerPageOptions = [10, 25, 100], additionnalColumnsId = "_id", additionnalColumnsLabel = "Actions", additionnalColumns = [], ...props}: ReactMaterialUiTableProps) => {
+export const ReactMaterialUiTable = ({headers, rows, OutlinedInputProps, TableCellHeaderProps, TableCellBodyProps, TableContainerProps, tablePaginationClassName, labelRowsPerPage = "Column per page", backIconButtonText = "back", nextIconButtonText = "next", showSearch = true, hiddenColumns = [], rowsPerPage = 10, rowsPerPageOptions = [10, 25, 100], additionalColumnsId = "_id", additionalColumnsLabel = "Actions", additionalColumns = [], ...props}: ReactMaterialUiTableProps) => {
     const classes = useStyles();
     const [search, setSearch] = React.useState<string>("");
     const [rowsPerPageState, setRowsPerPageState] = React.useState<number>(rowsPerPage);
@@ -76,7 +77,7 @@ export const ReactMaterialUiTable = ({headers, rows, OutlinedInputProps, TableCe
                                 .entries(headers)
                                 .filter(entriesNotIn(hiddenColumns))
                                 .map(([, headerCell]: [string, string], key: number) => <TableCell key={`headers-${key}`} {...TableCellHeaderProps}>{headerCell}</TableCell>)}
-                            {additionnalColumnsLabel && additionnalColumns.length ? (<TableCell {...TableCellHeaderProps}>{additionnalColumnsLabel}</TableCell>) : null}
+                            {additionalColumnsLabel && additionalColumns.length ? <TableCell {...TableCellHeaderProps}>{additionalColumnsLabel}</TableCell> : null}
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -92,11 +93,11 @@ export const ReactMaterialUiTable = ({headers, rows, OutlinedInputProps, TableCe
                                                 {column}
                                             </TableCell>
                                         ))}
-                                    {additionnalColumnsLabel && additionnalColumns.length ? (
+                                    {additionalColumnsLabel && additionalColumns.length ? (
                                         <TableCell {...TableCellBodyProps}>
-                                            {additionnalColumns.map((additionnalColumn: AdditionnalColumn, keyAction: number) => (
+                                            {additionalColumns.map((additionalColumn: AdditionnalColumn, keyAction: number) => (
                                                 <span key={`action-${keyAction}`}>
-                                                    {additionnalColumn(row[additionnalColumnsId])}
+                                                    {additionalColumn(row[additionalColumnsId])}
                                                 </span>
                                             ))}
                                         </TableCell>
