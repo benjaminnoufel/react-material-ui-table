@@ -1,0 +1,30 @@
+name: Build CI
+
+on:
+    push:
+        branches:
+            - next
+            - latest
+
+    pull_request:
+        branches:
+            - next
+            - latest
+
+jobs:
+    build:
+        name: Check if the project can be build
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout the project
+              uses: actions/checkout@v2
+
+            - name: Setup for the environment
+              run: cp .env.example .env
+
+            - name: Install the Node.js dependencies
+              run: make install peer
+
+            - name: Check if the project can be build
+              run: make build
