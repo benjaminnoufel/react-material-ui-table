@@ -2,7 +2,7 @@ version: "3"
 
 services:
   yarn:
-    image: node:14.0.0
+    image: node:17.2.0
     user: node
     working_dir: /home/node
     entrypoint: yarn

@@ -28,7 +28,7 @@ install:
 	docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn install
 
 peer:
-	docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn add -P @material-ui/core react@16
+	docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn add -P @mui/material @mui/styles @emotion/styled @emotion/react react
 
 clean:
 	docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) bash -c 'for file in $(shell cat .gitignore); do if [ "/.env" != "$$file" ]; then rm -rf .$$file; fi; done'

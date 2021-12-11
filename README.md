@@ -18,13 +18,13 @@ Create table with Material-ui Table for React.
 ### NPM
 
 ```console
-$ npm install @material-ui/core react@16 @benjaminnoufel/react-material-ui-table
+$ npm install @mui/material @mui/styles react @benjaminnoufel/react-material-ui-table
 ```
 
 ### Yarn
 
 ```console
-$ yarn add @material-ui/core react@16 @benjaminnoufel/react-material-ui-table
+$ yarn add @mui/material @mui/styles react @benjaminnoufel/react-material-ui-table
 ```
 
 ## Usage
